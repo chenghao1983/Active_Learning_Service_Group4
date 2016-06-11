@@ -51,7 +51,7 @@ namespace ActiveLearning.FormClient
         {
             try
             {
-                Stream st = await client.DownloadFileStreamAsync(content.Sid);
+                Stream st = await client.DownloadFileStreamAsync(courseSid,content.Sid);
 
                 contentBytes = Util.GetBytesFromStream(st);
 

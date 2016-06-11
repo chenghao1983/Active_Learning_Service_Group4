@@ -24,6 +24,7 @@ namespace ActiveLearning.Common
         #region ViewModel
         public const string Please_Enter = "Please enter ";
         public const string Please_Enter_A_Valid = "Please enter a valid ";
+        public const string Is_Empty = "Is Empty";
         #endregion
 
         #region User Role
@@ -41,6 +42,7 @@ namespace ActiveLearning.Common
         #endregion
 
         #region Message
+        public const string Sid = "Sid";
         public const string Role = "Role";
         public const string User = "User";
         public const string Student = "Student";

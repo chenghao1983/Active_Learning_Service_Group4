@@ -150,6 +150,7 @@ namespace ActiveLearning.Web.Controllers
                 return RedirectToLogin();
             }
 
+            #region Old Code
             //Content content = null;
             //using (var contentManager = new ContentManager())
             //{
@@ -164,6 +165,8 @@ namespace ActiveLearning.Web.Controllers
             //    }
             //}
             //return new RedirectResult(Request.UrlReferrer.ToString());
+
+            #endregion
 
             byte[] fileBytes = Util.GetBytesFromStream(file.InputStream);
 
@@ -334,7 +337,7 @@ namespace ActiveLearning.Web.Controllers
             {
                 return RedirectToLogin();
             }
-
+            #region oldCode
             //Content content = null;
             //Content newContent = null;
 
@@ -377,6 +380,8 @@ namespace ActiveLearning.Web.Controllers
             //        //return View(content);
             //    }
             //}
+            #endregion
+
             byte[] fileBytes = Util.GetBytesFromStream(file.InputStream);
 
             string fileName = new FileInfo(file.FileName).Name;

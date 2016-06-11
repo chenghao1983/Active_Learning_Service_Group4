@@ -574,10 +574,10 @@ namespace ActiveLearning.FormClient.StudentService {
         System.Threading.Tasks.Task<ActiveLearning.FormClient.StudentService.ContentDTO[]> GetContentsByCourseSidAsync(int courseSid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/DownloadFileStream", ReplyAction="http://tempuri.org/IStudentService/DownloadFileStreamResponse")]
-        System.IO.Stream DownloadFileStream(int contentSid);
+        System.IO.Stream DownloadFileStream(int courseSid, int contentSid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/DownloadFileStream", ReplyAction="http://tempuri.org/IStudentService/DownloadFileStreamResponse")]
-        System.Threading.Tasks.Task<System.IO.Stream> DownloadFileStreamAsync(int contentSid);
+        System.Threading.Tasks.Task<System.IO.Stream> DownloadFileStreamAsync(int courseSid, int contentSid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/GetNextQuizQuestionByCourseSid", ReplyAction="http://tempuri.org/IStudentService/GetNextQuizQuestionByCourseSidResponse")]
         ActiveLearning.FormClient.StudentService.QuizQuestionDTO GetNextQuizQuestionByCourseSid(int courseSid);
@@ -586,10 +586,10 @@ namespace ActiveLearning.FormClient.StudentService {
         System.Threading.Tasks.Task<ActiveLearning.FormClient.StudentService.QuizQuestionDTO> GetNextQuizQuestionByCourseSidAsync(int courseSid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/AnswerQuiz", ReplyAction="http://tempuri.org/IStudentService/AnswerQuizResponse")]
-        System.Nullable<bool> AnswerQuiz(int quizQuestionSid, int quizOptionSid);
+        System.Nullable<bool> AnswerQuiz(int courseSid, int quizQuestionSid, int quizOptionSid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/AnswerQuiz", ReplyAction="http://tempuri.org/IStudentService/AnswerQuizResponse")]
-        System.Threading.Tasks.Task<System.Nullable<bool>> AnswerQuizAsync(int quizQuestionSid, int quizOptionSid);
+        System.Threading.Tasks.Task<System.Nullable<bool>> AnswerQuizAsync(int courseSid, int quizQuestionSid, int quizOptionSid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -651,12 +651,12 @@ namespace ActiveLearning.FormClient.StudentService {
             return base.Channel.GetContentsByCourseSidAsync(courseSid);
         }
         
-        public System.IO.Stream DownloadFileStream(int contentSid) {
-            return base.Channel.DownloadFileStream(contentSid);
+        public System.IO.Stream DownloadFileStream(int courseSid, int contentSid) {
+            return base.Channel.DownloadFileStream(courseSid, contentSid);
         }
         
-        public System.Threading.Tasks.Task<System.IO.Stream> DownloadFileStreamAsync(int contentSid) {
-            return base.Channel.DownloadFileStreamAsync(contentSid);
+        public System.Threading.Tasks.Task<System.IO.Stream> DownloadFileStreamAsync(int courseSid, int contentSid) {
+            return base.Channel.DownloadFileStreamAsync(courseSid, contentSid);
         }
         
         public ActiveLearning.FormClient.StudentService.QuizQuestionDTO GetNextQuizQuestionByCourseSid(int courseSid) {
@@ -667,12 +667,12 @@ namespace ActiveLearning.FormClient.StudentService {
             return base.Channel.GetNextQuizQuestionByCourseSidAsync(courseSid);
         }
         
-        public System.Nullable<bool> AnswerQuiz(int quizQuestionSid, int quizOptionSid) {
-            return base.Channel.AnswerQuiz(quizQuestionSid, quizOptionSid);
+        public System.Nullable<bool> AnswerQuiz(int courseSid, int quizQuestionSid, int quizOptionSid) {
+            return base.Channel.AnswerQuiz(courseSid, quizQuestionSid, quizOptionSid);
         }
         
-        public System.Threading.Tasks.Task<System.Nullable<bool>> AnswerQuizAsync(int quizQuestionSid, int quizOptionSid) {
-            return base.Channel.AnswerQuizAsync(quizQuestionSid, quizOptionSid);
+        public System.Threading.Tasks.Task<System.Nullable<bool>> AnswerQuizAsync(int courseSid, int quizQuestionSid, int quizOptionSid) {
+            return base.Channel.AnswerQuizAsync(courseSid, quizQuestionSid, quizOptionSid);
         }
     }
 }

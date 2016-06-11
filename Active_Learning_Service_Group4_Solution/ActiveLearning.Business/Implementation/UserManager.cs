@@ -252,6 +252,41 @@ namespace ActiveLearning.Business.Implementation
             }
 
         }
+        public bool StudentHasAccessToCourse(int studentSid, int courseSid, out string message)
+        {
+            if (studentSid == 0)
+            {
+                message = Constants.ValueIsEmpty(Constants.User);
+                return false;
+            }
+            if (courseSid == 0)
+            {
+                message = Constants.ValueIsEmpty(Constants.Course);
+                return false;
+            }
+            try
+            {
+                using (var unitOfWork = new UnitOfWork(new ActiveLearningContext()))
+                {
+
+                    var student = GetStudentByStudentSid(studentSid, out message);
+                    var student_Course_Map = unitOfWork.Student_Course_Maps.Find(m => m.StudentSid == student.Sid && m.CourseSid == courseSid);
+                    if (student_Course_Map == null || student_Course_Map.Count() == 0)
+                    {
+                        message = Constants.NOAccess(Constants.Course);
+                        return false;
+                    }
+                    message = string.Empty;
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLog(ex);
+                message = Constants.OperationFailedDuringRetrievingValue(Constants.User);
+                return false;
+            }
+        }
         public bool ChangePassword(User user, string oldPass, string newPass, string newPassConfirm, out string message)
         {
             if (user == null || user.Sid == 0 || string.IsNullOrEmpty(user.Username))

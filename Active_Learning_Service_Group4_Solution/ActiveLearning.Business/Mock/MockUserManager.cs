@@ -277,6 +277,11 @@ namespace ActiveLearning.Business.Mock
             throw new NotImplementedException();
         }
 
+        public bool StudentHasAccessToCourse(int studentSid, int courseSid, out string message)
+        {
+            throw new NotImplementedException();
+        }
+
 
 
         #endregion

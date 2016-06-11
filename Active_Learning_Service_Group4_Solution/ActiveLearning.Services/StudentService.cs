@@ -58,9 +58,17 @@ namespace ActiveLearning.Services
             {
                 throw new FaultException(Constants.User_Not_Logged_In);
             }
+            string message = string.Empty;
+            using (userManager = new UserManager())
+            {
+                if(!userManager.StudentHasAccessToCourse(studentDTO.Sid, courseSid, out message))
+                {
+                    throw new FaultException(message);
+                }
+            }
             using (contentManager = new ContentManager())
             {
-                string message = string.Empty;
+               
                 var contentList = contentManager.GetAcceptedContentsByCourseSid(courseSid, out message);
                 if (contentList == null || contentList.Count() == 0)
                 {
@@ -83,9 +91,16 @@ namespace ActiveLearning.Services
             {
                 throw new FaultException(Constants.User_Not_Logged_In);
             }
+            string message = string.Empty;
+            using (userManager = new UserManager())
+            {
+                if (!userManager.StudentHasAccessToCourse(studentDTO.Sid, courseSid, out message))
+                {
+                    throw new FaultException(message);
+                }
+            }
             using (quizManager = new QuizManager())
             {
-                string message = string.Empty;
                 var quizQuestion = quizManager.GetNextQuizQuestionByStudentSidCourseSid(studentDTO.Sid, courseSid, out message);
                 if (quizQuestion == null)
                 {
@@ -107,13 +122,20 @@ namespace ActiveLearning.Services
             }
         }
 
-        public bool? AnswerQuiz(int quizQuestionSid, int quizOptionSid)
+        public bool? AnswerQuiz(int courseSid, int quizQuestionSid, int quizOptionSid)
         {
             if (studentDTO == null || userDTO == null)
             {
                 throw new FaultException(Constants.User_Not_Logged_In);
             }
             string message = string.Empty;
+            using (userManager = new UserManager())
+            {
+                if (!userManager.StudentHasAccessToCourse(studentDTO.Sid, courseSid, out message))
+                {
+                    throw new FaultException(message);
+                }
+            }
             using (quizManager = new QuizManager())
             {
                 var result = quizManager.IsQuizAnswerCorrect(studentDTO.Sid, quizQuestionSid, quizOptionSid, out message);
@@ -165,13 +187,20 @@ namespace ActiveLearning.Services
             studentDTO = null;
         }
 
-        public Stream DownloadFileStream(int contentSid)
+        public Stream DownloadFileStream(int courseSid, int contentSid)
         {
             if (studentDTO == null || userDTO == null)
             {
                 throw new FaultException(Constants.User_Not_Logged_In);
             }
             string message = string.Empty;
+            using (userManager = new UserManager())
+            {
+                if (!userManager.StudentHasAccessToCourse(studentDTO.Sid, courseSid, out message))
+                {
+                    throw new FaultException(message);
+                }
+            }
             using (contentManager = new ContentManager())
             {
                 Content content = contentManager.GetContentByContentSid(contentSid, out message);

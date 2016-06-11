@@ -38,7 +38,6 @@
             this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.LblMessage = new System.Windows.Forms.Label();
-            this.testUploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.Menu.SuspendLayout();
             this.PanelCourseList.SuspendLayout();
@@ -48,27 +47,28 @@
             // 
             // Menu
             // 
+            this.Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginToolStripMenuItem,
-            this.exitToolStripMenuItem,
-            this.testUploadToolStripMenuItem});
+            this.exitToolStripMenuItem});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(1008, 24);
+            this.Menu.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.Menu.Size = new System.Drawing.Size(1344, 28);
             this.Menu.TabIndex = 0;
             this.Menu.Text = "menuStrip1";
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -77,9 +77,10 @@
             this.PanelCourseList.Controls.Add(this.dataGridView1);
             this.PanelCourseList.Controls.Add(this.LblMessage);
             this.PanelCourseList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelCourseList.Location = new System.Drawing.Point(0, 24);
+            this.PanelCourseList.Location = new System.Drawing.Point(0, 28);
+            this.PanelCourseList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelCourseList.Name = "PanelCourseList";
-            this.PanelCourseList.Size = new System.Drawing.Size(1008, 535);
+            this.PanelCourseList.Size = new System.Drawing.Size(1344, 660);
             this.PanelCourseList.TabIndex = 1;
             // 
             // dataGridView1
@@ -94,10 +95,11 @@
             this.sidDataGridViewTextBoxColumn,
             this.courseNameDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.courseDTOBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 31);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 38);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(984, 492);
+            this.dataGridView1.Size = new System.Drawing.Size(1312, 606);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -123,18 +125,12 @@
             // LblMessage
             // 
             this.LblMessage.AutoSize = true;
-            this.LblMessage.Location = new System.Drawing.Point(18, 15);
+            this.LblMessage.Location = new System.Drawing.Point(24, 18);
+            this.LblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblMessage.Name = "LblMessage";
-            this.LblMessage.Size = new System.Drawing.Size(35, 13);
+            this.LblMessage.Size = new System.Drawing.Size(46, 17);
             this.LblMessage.TabIndex = 0;
             this.LblMessage.Text = "label1";
-            // 
-            // testUploadToolStripMenuItem
-            // 
-            this.testUploadToolStripMenuItem.Name = "testUploadToolStripMenuItem";
-            this.testUploadToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.testUploadToolStripMenuItem.Text = "TestUpload";
-            this.testUploadToolStripMenuItem.Click += new System.EventHandler(this.testUploadToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -142,12 +138,13 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 559);
+            this.ClientSize = new System.Drawing.Size(1344, 688);
             this.Controls.Add(this.PanelCourseList);
             this.Controls.Add(this.Menu);
             this.MainMenuStrip = this.Menu;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -175,7 +172,6 @@
         private System.Windows.Forms.BindingSource courseDTOBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn sidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripMenuItem testUploadToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

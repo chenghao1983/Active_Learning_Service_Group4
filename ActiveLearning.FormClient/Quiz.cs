@@ -70,7 +70,7 @@ namespace ActiveLearning.FormClient
             bool? isCorrect = null;
             try
             {
-                isCorrect = await client.AnswerQuizAsync(quizQuestion.Sid, answer);
+                isCorrect = await client.AnswerQuizAsync(courseSid,quizQuestion.Sid, answer);
             }
             catch (FaultException fe)
             {

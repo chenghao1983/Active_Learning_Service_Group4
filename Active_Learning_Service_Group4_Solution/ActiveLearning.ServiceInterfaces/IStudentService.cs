@@ -22,12 +22,12 @@ namespace ActiveLearning.ServiceInterfaces
         IEnumerable<ContentDTO> GetContentsByCourseSid(int courseSid);
 
         [OperationContract]
-        Stream DownloadFileStream(int contentSid);
+        Stream DownloadFileStream(int courseSid, int contentSid);
 
         [OperationContract]
         QuizQuestionDTO GetNextQuizQuestionByCourseSid(int courseSid);
 
         [OperationContract]
-        bool? AnswerQuiz(int quizQuestionSid, int quizOptionSid);
+        bool? AnswerQuiz(int courseSid, int quizQuestionSid, int quizOptionSid);
     }
 }
